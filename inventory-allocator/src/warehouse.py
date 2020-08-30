@@ -5,13 +5,12 @@ import traceback
 import datetime
 __location__ = os.path.abspath(os.getcwd())
 logfile_name = datetime.datetime.now()
-logpath = os.path.join(
-    __location__, append_file)
+logfile_name = str(logfile_name).split(
+    ".")[0].replace(" ", "_").replace(":", "_")
+
+
 logging.basicConfig(level=os.environ.get(
     "LOGLEVEL", "DEBUG"), filename=logfile_name)
-
-logger = logging.getLogger()
-
 
 def get_input(order, warehouses):
     warehouse_dict = OrderedDict()

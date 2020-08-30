@@ -1,18 +1,14 @@
 from collections import OrderedDict
 import os
 import json
-import logging
 import traceback
 import datetime
 __location__ = os.path.abspath(os.getcwd())
 logfile_name = datetime.datetime.now()
-logfile_name = str(logfile_name).split(
-    ".")[0].replace(" ", "_").replace(":", "_")
-append_file = "logs\\"+logfile_name+str(".log")
 logpath = os.path.join(
     __location__, append_file)
 logging.basicConfig(level=os.environ.get(
-    "LOGLEVEL", "DEBUG"), filename=logpath)
+    "LOGLEVEL", "DEBUG"), filename=logfile_name)
 
 logger = logging.getLogger()
 
